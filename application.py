@@ -1,66 +1,63 @@
-print "Welcome to game Guess Number"
-import random #This module will generate a random number
+"""I GUESS NUMBER"""
+print "Welcome to Game Guess Number"
+import random #This module will generate a random NUMBER
 
-New_Game = True
-while New_Game == True: #This will run while the user want to play
+GAME = True
+while GAME == True: #This will run while the user want to play
 
-    Random_Number = random.randint(1, 20) #This variable saves the generated number from 1 to 20
-    Turn = 1 #This counts the opportunities of the player
-    while Turn <= 4: #The player only has 4 Turns
-        try: 
-            print Turn, "Turn"
-            print Random_Number,"I Guess Number"
-            Number = int(raw_input("Enter a number from 1 to 20: ")) #This condition checks if the user guesses the number
-            
-            if Number == Random_Number:
+    RANDOM = random.randint(1, 20) #This variable saves the generated NUMBER from 1 to 20
+    TURN = 1 #This counts the opportunities of the player
+    while TURN <= 4: #The player only has 4 TURNs
+        try:
+            print TURN, "TURN"
+            print RANDOM, "I Guess NUMBER"
+            NUMBER = int(raw_input("Enter a NUMBER from 1 to 20: "))
+            #This condition checksif the user guesses the NUMBER
+            if NUMBER == RANDOM:
                 print "You win!"
-
-                Winner = True
-                while Winner == True: #When of the player wins the game asks if want to play again
-                    
-                    Answer = raw_input("Do you want to play again? yes or no:  ")
-                    Answer = Answer.lower()
-
-                    if Answer == "yes":
-                        Winner = False #If the answer of the player is "yes" no longer will ask
-                        New_Game = True #This will run the game again
-                        Turn= 1
-                    elif Answer == "no":
-                        Winner = False 
-                        New_Game = False
-                        Turn = 5 #This will stop the game
+                WINNER = True
+                while WINNER == True:
+                	#When of the player wins the GAME asks if want to play again
+                    ANSWER = raw_input("Do you want to play again? yes or no:  ")
+                    ANSWER = ANSWER.lower()
+                    if ANSWER == "yes":
+                        WINNER = False #If the ANSWER of the player is "yes" no longer will ask
+                        GAME = True #This will run the GAME again
+                        TURN = 1
+                    elif ANSWER == "no":
+                        WINNER = False
+                        GAME = False
+                        TURN = 5 #This will stop the GAME
                         print "Thanks for to play!"
                     else:
                         print "Only can enter yes or no "
-                        Winner = True #The game only can accept "yes" or "no"
-            elif Number > Random_Number: #This compares if the number entered is higher than the generated number
+                        WINNER = True #The GAME only can accept "yes" or "no"
+            elif NUMBER > RANDOM:
+            	#This compares if the NUMBER entered is higher than the generated NUMBER
                 print "You guessed too high, please try again"
-                Turn+= 1 
-                
-            elif Number < Random_Number:#This compares if the number entered is lower than the generated number
+                TURN += 1
+            elif NUMBER < RANDOM:
+            	#This compares if the NUMBER entered is lower than the generated NUMBER
                 print "You guessed too low, please try again"
-                Turn+= 1
-                
+                TURN += 1
         except ValueError:
-            print "Only can enter numbers"
-
-    if New_Game == False:
+            print "Only can enter NUMBERs"
+    if GAME == False:
         break
     else:
-        print "Game Over"
-        print "The number was: %d" % Random_Number
-    Loser = True
-    while Loser == True: #when the player loses the game will ask if want to play again
-        Answer = raw_input("Do you want to play again? yes or no")
-        Answer = Answer.lower()
-
-        if Answer == "yes":
-            Loser = False
-            New_Game = True
-        elif Answer == "no":
-            Loser = False
-            New_Game = False
+        print "GAME Over"
+        print "The NUMBER was: %d" % RANDOM
+    LOSER = True
+    while LOSER == True: #when the player loses the GAME will ask if want to play again
+        ANSWER = raw_input("Do you want to play again? yes or no")
+        ANSWER = ANSWER.lower()
+        if ANSWER == "yes":
+            LOSER = False
+            GAME = True
+        elif ANSWER == "no":
+            LOSER = False
+            GAME = False
             print "Thanks for to play"
         else:
             print "Only can enter yes or no"
-            Loser = True
+            LOSER = True
