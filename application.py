@@ -28,38 +28,23 @@ while GAME == True: #This will run while the user want to play
             #This condition checksif the user guesses the Number
             if NUMBER == RANDOM:
                 print "\n\nYou win!"
-                WINNER = True
-                while WINNER == True:
-                	#When of the player wins the Game asks if want to play again
-                    ANSWER = raw_input("\nDo you want to play again? yes or no:  ")
-                    ANSWER = ANSWER.lower()
-                    if ANSWER == "yes":
-                        WINNER = False #If the Answer of the player is "yes" no longer will ask
-                        GAME = True #This will run the Game again
-                        TURN = 1
-                    elif ANSWER == "no":
-                        WINNER = False
-                        GAME = False
-                        TURN = 5 #This will stop the Game
-                        print "\nThanks for to play!"
-                    else:
-                        print "Only can enter yes or no "
-                        WINNER = True #The Game only can accept "yes" or "no"
+                TURN = 5
             elif NUMBER > RANDOM:
-            	#This compares if the Number entered is higher than the generated Number
+                #This compares if the Number entered is higher than the generated Number
                 print "You guessed too high, please try again"
                 TURN += 1
+                if TURN > 4:
+                    print "\nGame Over"
+                    print "\nThe Number was: %d" % RANDOM
             elif NUMBER < RANDOM:
-            	#This compares if the Number entered is lower than the generated Number
+                #This compares if the Number entered is lower than the generated Number
                 print "You guessed too low, please try again"
                 TURN += 1
+                if TURN > 4:
+                    print "\nGame Over"
+                    print "\nThe Number was: %d" % RANDOM
         except ValueError:
             print "\nOnly can enter Numbers"
-    if GAME == False:
-        break
-    else:
-        print "\nGame Over"
-        print "\nThe Number was: %d" % RANDOM
     LOSER = True
     while LOSER == True: #when the player loses the Game will ask if want to play again
         ANSWER = raw_input("Do you want to play again? yes or no: ")
